@@ -135,6 +135,7 @@ endif()
 
 if (CMAKE_CUDA_COMPILER_ID STREQUAL "Clang")
         add_definitions(-D__STRICT_ANSI__)
+		target_compile_options(numerics PRIVATE $<$<COMPILE_LANGUAGE:CUDA>: --std=c++14 -D__NVCC__ >)
 endif()
 
 if(CUDA_FOUND)
